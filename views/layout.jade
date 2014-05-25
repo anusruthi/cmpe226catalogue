@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    div#outerarea
+      div#innerarea
+        div#header
+          a.nav(href="/"): img.logo(src='/images/logo.png')
+        div#nav
+          form(action='/search/',method="get")
+            input.form-control(type='text', name="search", placeholder='Search')
+            button.btn.btn-default(type='submit') Submit
+          each val in navigation
+            a.nav(href="/category/" + val)= val
+            span= ' | '
+        div#bodyContent
+          block content
+        div#footer All copy rights belongs to Cart project

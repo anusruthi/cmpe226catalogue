@@ -1,0 +1,14 @@
+extends layout
+
+block content
+	- if (data.length == 0) {
+		p= 'no match found'
+	-} else {
+		each val in data
+			p= val.category
+			p.itemTitle= val.title
+			p.itemPrice= '$' + val.price
+			each value, key in val.attr[0]
+				p.itemDesc= key + ': ' + value
+			hr
+	-}
